@@ -78,11 +78,7 @@ class Simple_Page_Sidebars_Admin {
 		$sidebar_name_nonce = ( isset( $_REQUEST['sidebar_name_nonce'] ) && wp_verify_nonce( $_REQUEST['sidebar_name_nonce'], 'update-page-sidebar-name-' . $post_id ) ) ? true : false;
 		$bulk_sidebar_name_nonce = ( isset( $_REQUEST['bulk_sidebar_name_nonce'] ) && wp_verify_nonce( $_REQUEST['bulk_sidebar_name_nonce'], 'bulk-update-page-sidebar-name' ) ) ? true : false;
 		if ( ! $sidebar_name_nonce && ! $bulk_sidebar_name_nonce ) {
-			if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-				exit;
-			} else {
-				return;
-			}
+			return;
 		}
 		
 		// if 'new_sidebar_name' is set and not empty, it supercedes any 'sidebar_name' setting

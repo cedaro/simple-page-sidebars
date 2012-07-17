@@ -68,6 +68,9 @@ Some themes create different sidebars for their various page templates, which me
 
 == Changelog ==
 
+= 1.0.1 =
+* Fixed bug causing issues with other plugins that don't submit the sidebar nonce on the All Pages screen.
+
 = 1.0 =
 * Modified check for blog page.
 
