@@ -4,7 +4,7 @@ Donate link: http://bit.ly/s2zcgD
 Tags: sidebars, custom sidebars, dynamic sidebar, simple, widget, widgets
 Requires at least: 3.2.1
 Tested up to: 3.4.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
