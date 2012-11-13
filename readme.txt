@@ -2,9 +2,9 @@
 Contributors: blazersix, bradyvercher
 Donate link: http://bit.ly/s2zcgD
 Tags: sidebars, custom sidebars, dynamic sidebar, simple, widget, widgets
-Requires at least: 3.2.1
-Tested up to: 3.4.1
-Stable tag: 1.0.1
+Requires at least: 3.4.2
+Tested up to: 3.4.2
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,15 @@ If your page has any custom loops or queries, they need to be followed by `wp_re
 Some themes create different sidebars for their various page templates, which means there isn't a default sidebar that can be replaced. The only workaround to continue using Simple Page Sidebars in this instance is to create a child theme to force page templates with custom sidebars to use the default sidebar.
 
 == Changelog ==
+
+= 1.1 =
+* Added an Edit Sidebar screen for updating a sidebar name and associated pages.
+* Added an update message when a sidebar is saved on the Add/Edit Page screen.
+* Made the sidebar column sortable on the All Pages screen.
+* Refactored the codebase (formatting, improved comments, static classes, organization, etc).
+* Added better feedback throughout the dashboard when something goes wrong.
+* Saved spinner image to plugin folder due to updates coming in 3.5.
+* Removed deprecated filters.
 
 = 1.0.1 =
 * Fixed bug causing issues with other plugins that don't submit the sidebar nonce on the All Pages screen.
