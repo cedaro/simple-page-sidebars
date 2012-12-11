@@ -1,6 +1,6 @@
 <div id="simple-page-sidebars-page-sidebar-update-message" class="simple-page-sidebars-page-sidebar-feedback" style="display: none">
 	<p>
-		<?php _e( 'Page sidebar saved.', 'simple-page-sidebars' ); ?>
+		<?php _e( 'Sidebar saved.', 'simple-page-sidebars' ); ?>
 		<a href="<?php echo admin_url( 'widgets.php' ); ?>"><?php _e( 'Update widgets now.', 'simple-page-sidebars' ); ?></a>
 	</p>
 </div>

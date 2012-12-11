@@ -19,7 +19,7 @@
 				'cache_results' => false
 			) );
 			
-			$args['sidebar'] = self::sanitize_sidebar_name( $_GET['sidebar'] );
+			$args['sidebar'] = self::sanitize_sidebar_name( stripslashes( $_GET['sidebar'] ) );
 			$args['selected'] = self::get_page_ids_using_sidebar( $args['sidebar'] );
 			$args['walker'] = new Simple_Page_Siders_Walker_Page_Checklist;
 			

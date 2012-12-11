@@ -40,8 +40,8 @@ class Simple_Page_Sidebars_Admin {
 		// Process quick edit and bulk edit from All Pages screen.
 		add_action( 'wp_ajax_simplepagesidebars_update_page_sidebar', array( __CLASS__, 'update_page_sidebar' ) );
 		
-		add_action( 'admin_menu', array( __CLASS__, 'add_page_sidebar_meta_box' ) );
 		add_action( 'admin_menu', array( __CLASS__, 'add_sidebar_edit_screen' ) );
+		add_action( 'add_meta_boxes', array( __CLASS__, 'add_page_sidebar_meta_box' ) );
 		
 		add_action( 'admin_init', array( __CLASS__, 'register_default_sidebar_setting' ) );
 		
@@ -112,8 +112,10 @@ class Simple_Page_Sidebars_Admin {
 	 * 
 	 * @since 0.2.0
 	 */
-	public static function add_page_sidebar_meta_box() {
-		add_meta_box( 'simplepagesidebarsdiv', __( 'Sidebar', 'simple-page-sidebars' ), array( __CLASS__, 'page_sidebar_meta_box' ), 'page', 'side', 'default' );
+	public static function add_page_sidebar_meta_box( $post_type ) {
+		if ( 'page' == $post_type || post_type_supports( $post_type, 'simple-page-sidebars' ) ) {
+			add_meta_box( 'simplepagesidebarsdiv', __( 'Sidebar', 'simple-page-sidebars' ), array( __CLASS__, 'page_sidebar_meta_box' ), $post_type, 'side', 'default' );
+		}
 	}
 	
 	/**
@@ -396,7 +398,7 @@ class Simple_Page_Sidebars_Admin {
 	 * @param string $parent_file The top level menu item being viewed.
 	 * @return string $parent_file
 	 */
-	function highlight_widget_submenu( $parent_file ) {
+	public static function highlight_widget_submenu( $parent_file ) {
 		global $submenu_file;
 		
 		$screen = get_current_screen();
@@ -422,7 +424,7 @@ class Simple_Page_Sidebars_Admin {
 		wp_enqueue_script( 'post' );
 		
 		$screen = get_current_screen();
-		$sidebar_name = self::sanitize_sidebar_name( $_GET['sidebar'] );
+		$sidebar_name = self::sanitize_sidebar_name( stripslashes( $_GET['sidebar'] ) );
 		
 		include( SIMPLE_PAGE_SIDEBARS_DIR . 'admin/views/edit-sidebar-screen.php' );
 	}
@@ -450,12 +452,14 @@ class Simple_Page_Sidebars_Admin {
 	 * @since 1.1.0
 	 */
 	public static function process_sidebar_update() {
+		global $wpdb;
+		
 		if ( isset( $_POST['simplepagesidebars_sidebar_name'] ) ) {
-			$current_name = $_POST['simplepagesidebars_sidebar_name'];
+			$current_name = stripslashes( $_POST['simplepagesidebars_sidebar_name'] );
 			
 			check_admin_referer( 'update-sidebar_' . $current_name, 'simplepagesidebars_sidebar_update_nonce' );
 			
-			$new_name = $_POST['simplepagesidebars_sidebar_name_new'];
+			$new_name = stripslashes( $_POST['simplepagesidebars_sidebar_name_new'] );
 			$new_name = ( ! empty( $new_name ) && $new_name != $current_name ) ? trim( wp_strip_all_tags( $new_name ) ) : null;
 			
 			$pages = ( isset( $_POST['simplepagesidebars_sidebar_pages'] ) ) ? wp_parse_id_list( $_POST['simplepagesidebars_sidebar_pages'] ) : array();
@@ -471,16 +475,14 @@ class Simple_Page_Sidebars_Admin {
 				}
 			}
 			
-			// Update submitted page sidebars if there is a new sidebar name.
-			if ( $new_name && ! empty( $pages ) ) {
-				foreach( $pages as $page_id ) {
-					update_post_meta( $page_id, '_sidebar_name', $new_name );
-				}
+			// Update all sidebars if there is a new sidebar name.
+			if ( $new_name ) {
+				$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->postmeta SET meta_value=%s WHERE meta_key='_sidebar_name' AND meta_value=%s", $new_name, $current_name ) );
 			}
 			// Update newly selected pages with the current sidebar name.
 			elseif ( $update_pages = array_diff( $pages, $current_pages ) ) {
 				foreach( $update_pages as $page_id ) {
-					update_post_meta( $page_id, '_sidebar_name', $current_name );
+					update_post_meta( $page_id, '_sidebar_name', addslashes( $current_name ) );
 				}
 			}
 			
