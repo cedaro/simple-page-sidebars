@@ -3,7 +3,7 @@
  * Plugin Name: Simple Page Sidebars
  * Plugin URI: http://wordpress.org/extend/plugins/simple-page-sidebars/
  * Description: Assign custom, widget-enabled sidebars to any page with ease.
- * Version: 1.1
+ * Version: 1.1.1
  * Author: Blazer Six, Inc.
  * Author URI: http://www.blazersix.com/
  * License: GPLv2 or later

@@ -1,7 +1,6 @@
 <?php
 /**
- * @package Simple Page Sidebars
- * @subpackage Simple Page Sidebars Admin
+ * @package Simple_Page_Sidebars
  *
  * @todo Consider adding a Sidebars submenu to the Appearance menu for
  *       selecting and editing a sidebar.
@@ -210,10 +209,15 @@ class Simple_Page_Sidebars_Admin {
 		if ( 'simple-page-sidebar' == $column ) {
 			$sidebar = self::get_page_sidebar( $page_id );
 			if ( $sidebar ) {
-				printf( '<a href="%s">%s</a>',
-					esc_url( self::get_sidebar_edit_link( $sidebar ) ),
-					$sidebar
-				);
+				// The edit link can be disabled to prevent confusion if support is added to other post types.
+				if ( apply_filters( 'simple_page_sidebars_show_edit_link_in_column', true ) ) {
+					printf( '<a href="%s">%s</a>',
+						esc_url( self::get_sidebar_edit_link( $sidebar ) ),
+						$sidebar
+					);
+				} else {
+					echo $sidebar;
+				}
 			}
 			
 			// Add the nonce here and copy it to the inline editor with javascript.
