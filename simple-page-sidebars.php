@@ -118,10 +118,11 @@ class Simple_Page_Sidebars {
 		// Override the default widget properties.
 		$widget_area_defaults = array(
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget' => '</div>',
-			'before_title' => '<h4 class="title">',
-			'after_title' => '</h4>'
+			'after_widget'  => '</div>',
+			'before_title'  => '<h4 class="title">',
+			'after_title'   => '</h4>'
 		);
+		
 		$widget_area_defaults = apply_filters( 'simple_page_sidebars_widget_defaults', $widget_area_defaults );
 		
 		// If any custom sidebars have been assigned to pages, merge them with already defined widget areas.
@@ -145,10 +146,10 @@ class Simple_Page_Sidebars {
 					'id'            => $key,
 					'name'          => $area['name'],
 					'description'   => $area['description'],
-					'before_widget' => ( ! isset( $area['before_widget'] ) ) ? $widget_area_defaults['before_widget'] : $area['before_widget'],
-					'after_widget'  => ( ! isset( $area['after_widget'] ) ) ? $widget_area_defaults['after_widget'] : $area['after_widget'],
-					'before_title'  => ( ! isset( $area['before_title'] ) ) ? $widget_area_defaults['before_title'] : $area['before_title'],
-					'after_title'   => ( ! isset( $area['after_title'] ) ) ? $widget_area_defaults['after_title'] : $area['after_title']
+					'before_widget' => ( isset( $area['before_widget'] ) ) ? $area['before_widget'] : $widget_area_defaults['before_widget'],
+					'after_widget'  => ( isset( $area['after_widget'] ) )  ? $area['after_widget']  : $widget_area_defaults['after_widget'],
+					'before_title'  => ( isset( $area['before_title'] ) )  ? $area['before_title']  : $widget_area_defaults['before_title'],
+					'after_title'   => ( isset( $area['after_title'] ) )   ? $area['after_title']   : $widget_area_defaults['after_title']
 				));
 			}
 		}
@@ -163,7 +164,9 @@ class Simple_Page_Sidebars {
 	public static function replace_sidebar( $sidebars_widgets ) {
 		global $post;
 		
-		if ( is_page() || post_type_supports( $post->post_type, 'simple-page-sidebars' ) || ( is_home() && $posts_page = get_option( 'page_for_posts' ) ) ) {
+		$supports = ( isset( $post->post_type ) && post_type_supports( $post->post_type, 'simple-page-sidebars' ) ) ? true : false;
+		
+		if ( is_page() || $supports || ( is_home() && $posts_page = get_option( 'page_for_posts' ) ) ) {
 			$post_id = ( ! empty( $posts_page ) ) ? $posts_page : $post->ID;
 			
 			$custom_sidebar = get_post_meta( $post_id, '_sidebar_name', true );
