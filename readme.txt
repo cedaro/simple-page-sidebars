@@ -3,9 +3,9 @@ Contributors: blazersix, bradyvercher
 Donate link: http://bit.ly/s2zcgD
 Tags: sidebars, custom sidebars, dynamic sidebar, simple, widget, widgets
 Requires at least: 3.4.2
-Tested up to: 3.5
-Stable tag: 1.1.1
-License: GPLv2 or later
+Tested up to: 3.5.1
+Stable tag: trunk
+License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Easily assign custom, widget-enabled sidebars to any page.
@@ -67,6 +67,9 @@ If your page has any custom loops or queries, they need to be followed by `wp_re
 Some themes create different sidebars for their various page templates, which means there isn't a default sidebar that can be replaced. The only workaround to continue using Simple Page Sidebars in this instance is to create a child theme to force page templates with custom sidebars to use the default sidebar.
 
 == Changelog ==
+
+= 1.1.2 =
+* Changed the parent file of the "Edit Sidebar" screen to remove the small gap between submenu items.
 
 = 1.1.1 =
 * Worked around the slashing weirdness in WordPress API.
