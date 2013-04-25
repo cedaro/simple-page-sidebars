@@ -19,10 +19,10 @@
 		}
 		?>
 	</select>
-	
+
 	<label for="simple-page-sidebars-page-sidebar-name-new" class="screen-reader-text"><?php _e( 'Or create a new sidebar:', 'simple-page-sidebars' ); ?></label>
 	<input type="text" name="simplepagesidebars_page_sidebar_name_new" id="simple-page-sidebars-page-sidebar-name-new" class="widefat hide-if-js" value="">
-	
+
 	<span id="sidebarnew" class="hide-if-no-js"><?php _e( 'Enter New', 'simple-page-sidebars' ); ?></span>
 	<span id="sidebarcancel" class="hidden"><?php _e( 'Cancel', 'simple-page-sidebars' ); ?></span>
 </p>
@@ -53,26 +53,26 @@ jQuery(function($) {
 		spinner      : $('#simple-page-sidebars-page-sidebar-update-spinner'),
 		nameField    : $('#simple-page-sidebars-page-sidebar-name'),
 		nameFieldNew : $('#simple-page-sidebars-page-sidebar-name-new'),
-		
+
 		init : function() {
 			$('#sidebarcancel, #sidebarnew').on('click', function(e) {
 				e.preventDefault();
-				
+
 				simplePageSidebars.nameField.toggle();
 				simplePageSidebars.nameFieldNew.toggle();
-				
+
 				$('#sidebarcancel, #sidebarnew').toggle();
-				
+
 				// Clear the new sidebar name field when cancel is clicked.
 				if ( 'sidebarcancel' == $(this).attr('id') ) {
 					simplePageSidebars.nameFieldNew.val('');
 				}
 			});
 		},
-		
+
 		update : function() {
 			simplePageSidebars.spinner.show();
-		
+
 			$.post(
 				ajaxurl,
 				{
@@ -84,28 +84,28 @@ jQuery(function($) {
 				},
 				function( data ){
 					var newName = simplePageSidebars.nameFieldNew.val();
-					
+
 					if ( '' != newName ) {
 						if ( simplePageSidebars.nameField.find('option[value="' + newName + '"]').length < 1 ) {
 							simplePageSidebars.nameField.append('<option selected="selected">' + newName + '</option>').val( newName );
 						} else {
 							simplePageSidebars.nameField.find('option[value="' + newName + '"]').attr('selected', 'selected');
 						}
-						
+
 						simplePageSidebars.nameField.toggle();
 						simplePageSidebars.nameFieldNew.toggle().val('');
 						$('#sidebarcancel, #sidebarnew').toggle();
 					}
-					
+
 					$('#simple-page-sidebars-page-sidebar-update-message').show();
 					simplePageSidebars.spinner.hide();
 				}
 			);
 		}
 	};
-	
+
 	simplePageSidebars.init();
-	
+
 	$('#simplepagesidebarsdiv').find('button').on( 'click', function(e) {
 		e.preventDefault();
 		simplePageSidebars.update();

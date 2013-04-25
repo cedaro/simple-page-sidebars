@@ -1,20 +1,20 @@
 <div class="wrap simple-page-sidebars-edit-sidebar">
 	<div id="icon-tools" class="icon32"><br></div>
 	<h2>Edit Sidebar</h2>
-	
+
 	<?php
 	// Display an error message if a default sidebar hasn't been selected on the Reading settings screen.
 	if ( ! get_option( 'simple_page_sidebars_default_sidebar' ) ) {
 		echo '<div class="error"><p>' . self::get_empty_default_sidebar_error() . '</p></div>';
 	}
-	
+
 	// Display an error message and stop rendering the screen if the requested sidebar is not valid.
 	if ( ! $wpdb->get_var( $wpdb->prepare( "SELECT post_id FROM $wpdb->postmeta WHERE meta_key='_sidebar_name' AND meta_value=%s", $sidebar_name ) ) ) {
 		echo '<div class="error"><p>' . __( 'Whoops, that doesn\'t appear to be a sidebar that can be edited.', 'simple-page-sidebars' ) . '</p></div>';
 		echo '</div>'; // close div.wrap
 		return;
 	}
-	
+
 	// Display any custom update messages.
 	if ( isset( $_REQUEST['message'] ) ) {
 		?>
@@ -39,20 +39,20 @@
 		<?php
 	}
 	?>
-	
+
 	<form action="" method="post">
 		<div id="poststuff">
 			<div id="post-body" class="metabox-holder"><!--columns-2-->
-				
+
 				<div id="post-body-content">
 					<div class="sidebar-name-wrap">
 						<label for="simple-page-sidebars-sidebar-name-new" class="screen-reader-text">Sidebar Name:</label>
 						<input type="text" name="simplepagesidebars_sidebar_name_new" id="simple-page-sidebars-sidebar-name-new" value="<?php echo esc_attr( $sidebar_name ); ?>" placeholder="Enter sidebar name here" autocomplete="off">
 						<input type="hidden" name="simplepagesidebars_sidebar_name" value="<?php echo esc_attr( $sidebar_name ); ?>">
 					</div>
-					
+
 					<?php do_meta_boxes( $screen->id, 'normal', '' ); ?>
-					
+
 					<p class="submit">
 						<?php
 						wp_nonce_field( 'update-sidebar_' . $sidebar_name, 'simplepagesidebars_sidebar_update_nonce', true );
@@ -63,12 +63,12 @@
 						<!--<a href="#">Delete Sidebar</a>-->
 					</p>
 				</div>
-				
+
 				<!--<div id="postbox-container-1" class="postbox-container"></div>-->
 			</div>
 		</div>
 	</form>
-	
+
 </div>
 
 <style type="text/css">

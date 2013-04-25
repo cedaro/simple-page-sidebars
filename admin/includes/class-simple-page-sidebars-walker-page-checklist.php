@@ -1,7 +1,7 @@
 <?php
 /**
  * Custom page checklist walker.
- * 
+ *
  * @since 1.1.0
  */
 class Simple_Page_Siders_Walker_Page_Checklist extends Walker_Page {
@@ -21,9 +21,9 @@ class Simple_Page_Siders_Walker_Page_Checklist extends Walker_Page {
 		} else {
 			$indent = '';
 		}
-		
+
 		$current_sidebar = Simple_Page_Sidebars_Admin::get_page_sidebar( $page->ID );
-		
+
 		$output .= sprintf( '%s<li><label class="selectit"><input type="checkbox" name="simplepagesidebars_sidebar_pages[]" value="%d"%s> %s%s</label>',
 			$indent,
 			$page->ID,
@@ -33,4 +33,3 @@ class Simple_Page_Siders_Walker_Page_Checklist extends Walker_Page {
 		);
 	}
 }
-?>
