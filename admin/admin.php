@@ -44,8 +44,6 @@ class Simple_Page_Sidebars_Admin {
 		
 		add_action( 'admin_init', array( __CLASS__, 'register_default_sidebar_setting' ) );
 		
-		add_action( 'parent_file', array( __CLASS__, 'highlight_widget_submenu' ) );
-		
 		add_filter( 'parse_query', array( __CLASS__, 'parse_admin_query' ) );
 		add_filter( 'manage_pages_columns', array( __CLASS__, 'register_columns' ) );
 		add_action( 'manage_edit-page_sortable_columns', array( __CLASS__, 'register_sortable_columns' ) );
@@ -387,30 +385,9 @@ class Simple_Page_Sidebars_Admin {
 	 * @since 1.1.0
 	 */
 	public static function add_sidebar_edit_screen() {
-		add_submenu_page( 'themes.php', __( 'Edit Sidebar', 'simple-page-sidebars' ), null, 'edit_theme_options', 'simple-page-sidebars', array( __CLASS__, 'edit_sidebar_screen' ) );
+		add_submenu_page( 'admin.php', __( 'Edit Sidebar', 'simple-page-sidebars' ), null, 'edit_theme_options', 'simple-page-sidebars', array( __CLASS__, 'edit_sidebar_screen' ) );
 		
-		add_meta_box( 'simplepagesidebarseditdiv', 'Pages', array( __CLASS__, 'edit_sidebar_pages_meta_box' ), 'appearance_page_simple-page-sidebars', 'normal', 'default' );
-	}
-	
-	/**
-	 * Highlight the widget submenu when the Edit Sidebar screen is being 
-	 * iewed.
-	 * 
-	 * @since 1.1.0
-	 * @uses $submenu_file
-	 * 
-	 * @param string $parent_file The top level menu item being viewed.
-	 * @return string $parent_file
-	 */
-	public static function highlight_widget_submenu( $parent_file ) {
-		global $submenu_file;
-		
-		$screen = get_current_screen();
-		if ( 'appearance_page_simple-page-sidebars' == $screen->id ) {
-			$submenu_file = 'widgets.php';
-		}
-		
-		return $parent_file;
+		add_meta_box( 'simplepagesidebarseditdiv', 'Pages', array( __CLASS__, 'edit_sidebar_pages_meta_box' ), 'admin_page_simple-page-sidebars', 'normal', 'default' );
 	}
 	
 	/**
@@ -619,7 +596,7 @@ class Simple_Page_Sidebars_Admin {
 			'sidebar' => rawurlencode( $sidebar )
 		) );
 		
-		$link = add_query_arg( $query_args, admin_url( 'themes.php' ) );
+		$link = add_query_arg( $query_args, admin_url( 'admin.php' ) );
 		
 		return $link;
 	}
