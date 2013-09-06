@@ -274,9 +274,7 @@ class Simple_Page_Sidebars_Admin {
 		?>
 		<script type="text/javascript">
 		jQuery(function($) {
-			$('table.pages').on('click', 'a.editinline', function(e) {
-				inlineEditPost.revert();
-
+			$('table.pages #the-list').on('click', 'a.editinline', function(e) {
 				var id = inlineEditPost.getId(this),
 					currentSidebar = $('#post-' + id + ' .simple-page-sidebar').text(),
 					sidebarNameField = $('#simple-page-sidebars-page-sidebar-name');
@@ -288,7 +286,9 @@ class Simple_Page_Sidebars_Admin {
 				}
 
 				// Copy the sidebar name nonce.
-				$('#simple-page-sidebars-page-sidebar-edit-group').find('input[name="simplepagesidebars_page_sidebar_update_nonce"]').remove().end().append( $('#post-' + id + ' input[name="simplepagesidebars_page_sidebar_update_nonce"]').clone() );
+				$('#simple-page-sidebars-page-sidebar-edit-group')
+					.find('input[name="simplepagesidebars_page_sidebar_update_nonce"]').remove().end()
+					.append( $('#post-' + id + ' input[name="simplepagesidebars_page_sidebar_update_nonce"]').clone() );
 			});
 		});
 		</script>
