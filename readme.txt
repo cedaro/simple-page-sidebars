@@ -83,6 +83,9 @@ Some themes register different sidebars for their page templates, which means th
 
 == Changelog ==
 
+= 1.1.3 =
+* Fixed Quick Edit functionality in WordPress 3.6.
+
 = 1.1.2 =
 * Changed the parent file of the "Edit Sidebar" screen to remove the small gap between submenu items.
 
