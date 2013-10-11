@@ -15,7 +15,7 @@ class Simple_Page_Siders_Walker_Page_Checklist extends Walker_Page {
 	 * @param int $current_page Page ID.
 	 * @param array $args
 	 */
-	function start_el( &$output, $page, $depth, $args, $current_page = 0 ) {
+	function start_el( &$output, $page, $depth = 0, $args = array(), $current_page = 0 ) {
 		if ( $depth ) {
 			$indent = str_repeat( "\t", $depth );
 		} else {
