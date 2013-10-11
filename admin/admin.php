@@ -273,24 +273,30 @@ class Simple_Page_Sidebars_Admin {
 		}
 		?>
 		<script type="text/javascript">
-		jQuery(function($) {
-			$('table.pages #the-list').on('click', 'a.editinline', function(e) {
-				var id = inlineEditPost.getId(this),
-					currentSidebar = $('#post-' + id + ' .simple-page-sidebar').text(),
-					sidebarNameField = $('#simple-page-sidebars-page-sidebar-name');
+		( function( window, $, undefined ) {
+			'use strict';
+
+			var wpInlineEdit = inlineEditPost.edit;
+
+			inlineEditPost.edit = function( id ) {
+				wpInlineEdit.apply( this, arguments );
+
+				var postId = inlineEditPost.getId( id ),
+					currentSidebar = $( '#post-' + postId + ' .simple-page-sidebar' ).text(),
+					sidebarNameField = $( '#simple-page-sidebars-page-sidebar-name' );
 
 				// Select the current sidebar option.
-				sidebarNameField.find('option').attr('selected', false);
+				sidebarNameField.find( 'option' ).attr( 'selected', false );
 				if ( '' != currentSidebar ) {
-					sidebarNameField.find('option:contains(' + currentSidebar + ')').attr('selected', true);
+					sidebarNameField.find( 'option:contains(' + currentSidebar + ')' ).attr( 'selected', true );
 				}
 
 				// Copy the sidebar name nonce.
-				$('#simple-page-sidebars-page-sidebar-edit-group')
-					.find('input[name="simplepagesidebars_page_sidebar_update_nonce"]').remove().end()
-					.append( $('#post-' + id + ' input[name="simplepagesidebars_page_sidebar_update_nonce"]').clone() );
-			});
-		});
+				$( '#simple-page-sidebars-page-sidebar-edit-group' )
+					.find( 'input[name="simplepagesidebars_page_sidebar_update_nonce"]' ).remove().end()
+					.append( $( '#post-' + postId + ' input[name="simplepagesidebars_page_sidebar_update_nonce"]' ).clone() );
+			};
+		} )( window, jQuery );
 		</script>
 		<style type="text/css">
 		.widefat .column-simple-page-sidebar { width: 15%;}
@@ -321,7 +327,7 @@ class Simple_Page_Sidebars_Admin {
 						<option value="default"><?php _e( 'Default Sidebar', 'simple-page-sidebars' ); ?></option>
 						<?php
 						foreach ( $sidebars as $sb ) {
-							printf( '<option value="%1$s">%1$s</option>', $sb );
+							printf( '<option value="%1$s">%2$s</option>', esc_attr( $sb ), esc_html( $sb ) );
 						}
 						?>
 					</select>
