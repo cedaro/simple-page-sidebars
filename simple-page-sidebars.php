@@ -8,6 +8,8 @@
  * Author URI: http://www.blazersix.com/
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: simple-page-sidebars
+ * Domain Path: /languages
  *
  * @package SimplePageSidebars
  * @author Brady Vercher <brady@blazersix.com>
@@ -28,11 +30,6 @@ if ( ! defined( 'SIMPLE_PAGE_SIDEBARS_URL' ) )
 	define( 'SIMPLE_PAGE_SIDEBARS_URL', plugin_dir_url( __FILE__ ) );
 
 /**
- * Load the plugin whens plugins are loaded.
- */
-add_action( 'plugins_loaded', array( 'Simple_Page_Sidebars', 'load' ) );
-
-/**
  * Main plugin class.
  *
  * @since 0.2.0
@@ -44,7 +41,7 @@ class Simple_Page_Sidebars {
 	 * @since 0.2.0
 	 */
 	public static function load() {
-		load_plugin_textdomain( 'simple-page-sidebars', false, 'simple-page-sidebars/languages' );
+		self::load_textdomain();
 
 		require_once( plugin_dir_path( __FILE__ ) . 'includes/widget-area.php' );
 
@@ -63,6 +60,17 @@ class Simple_Page_Sidebars {
 		if ( ! is_admin() ) {
 			add_filter( 'sidebars_widgets', array( __CLASS__, 'replace_sidebar' ) );
 		}
+	}
+
+	/**
+	 * Plugin localization support.
+	 *
+	 * @since 1.1.4
+	 */
+	public static function load_textdomain() {
+		$locale = apply_filters( 'plugin_locale', get_locale(), 'simple-page-sidebars' );
+		load_textdomain( 'simple-page-sidebars', WP_LANG_DIR . '/simple-page-sidebars/' . $locale . '.mo' );
+		load_plugin_textdomain( 'simple-page-sidebars', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	/**
@@ -188,6 +196,7 @@ class Simple_Page_Sidebars {
 		}
 	}
 }
+add_action( 'plugins_loaded', array( 'Simple_Page_Sidebars', 'load' ) );
 
 /**
  * Get an array of custom sidebar names.

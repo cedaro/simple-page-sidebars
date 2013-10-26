@@ -1,6 +1,6 @@
 <div class="wrap simple-page-sidebars-edit-sidebar">
 	<div id="icon-tools" class="icon32"><br></div>
-	<h2>Edit Sidebar</h2>
+	<h2><?php _e( 'Edit Sidebar', 'simple-page-sidebars' ); ?></h2>
 
 	<?php
 	// Display an error message if a default sidebar hasn't been selected on the Reading settings screen.
@@ -46,8 +46,8 @@
 
 				<div id="post-body-content">
 					<div class="sidebar-name-wrap">
-						<label for="simple-page-sidebars-sidebar-name-new" class="screen-reader-text">Sidebar Name:</label>
-						<input type="text" name="simplepagesidebars_sidebar_name_new" id="simple-page-sidebars-sidebar-name-new" value="<?php echo esc_attr( $sidebar_name ); ?>" placeholder="Enter sidebar name here" autocomplete="off">
+						<label for="simple-page-sidebars-sidebar-name-new" class="screen-reader-text"><?php _e( 'Sidebar Name:', 'simple-page-sidebars' ); ?></label>
+						<input type="text" name="simplepagesidebars_sidebar_name_new" id="simple-page-sidebars-sidebar-name-new" value="<?php echo esc_attr( $sidebar_name ); ?>" placeholder="<?php esc_attr_e( 'Enter sidebar name here', 'simple-page-sidebars' ); ?>" autocomplete="off">
 						<input type="hidden" name="simplepagesidebars_sidebar_name" value="<?php echo esc_attr( $sidebar_name ); ?>">
 					</div>
 
