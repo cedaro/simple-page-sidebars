@@ -219,7 +219,8 @@ class Simple_Page_Sidebars_Admin {
 			}
 
 			// Add the nonce here and copy it to the inline editor with javascript.
-			wp_nonce_field( 'update-page-sidebar_' . $page_id, 'simplepagesidebars_page_sidebar_update_nonce', false );
+			$nonce = wp_create_nonce( 'update-page-sidebar_' . $page_id );
+			printf( '<input type="hidden" value="%s" class="simplepagesidebars_page_sidebar_update_nonce">', esc_attr( $nonce ) );
 		}
 	}
 
@@ -251,6 +252,7 @@ class Simple_Page_Sidebars_Admin {
 							?>
 						</select>
 					</label>
+					<?php wp_nonce_field( 'update-page-sidebar', 'simplepagesidebars_page_sidebar_update_nonce', false ); ?>
 				</div>
 			</div>
 		</fieldset>
@@ -283,7 +285,8 @@ class Simple_Page_Sidebars_Admin {
 
 				var postId = inlineEditPost.getId( id ),
 					currentSidebar = $( '#post-' + postId + ' .simple-page-sidebar' ).text(),
-					sidebarNameField = $( '#simple-page-sidebars-page-sidebar-name' );
+					sidebarNameField = $( '#simple-page-sidebars-page-sidebar-name' ),
+					$nonceField = $( '#simple-page-sidebars-page-sidebar-edit-group' ).find( 'input[name="simplepagesidebars_page_sidebar_update_nonce"]' );
 
 				// Select the current sidebar option.
 				sidebarNameField.find( 'option' ).attr( 'selected', false );
@@ -292,9 +295,7 @@ class Simple_Page_Sidebars_Admin {
 				}
 
 				// Copy the sidebar name nonce.
-				$( '#simple-page-sidebars-page-sidebar-edit-group' )
-					.find( 'input[name="simplepagesidebars_page_sidebar_update_nonce"]' ).remove().end()
-					.append( $( '#post-' + postId + ' input[name="simplepagesidebars_page_sidebar_update_nonce"]' ).clone() );
+				$nonceField.val( $( '#post-' + postId + ' .simplepagesidebars_page_sidebar_update_nonce' ).val() );
 			};
 		} )( window, jQuery );
 		</script>
