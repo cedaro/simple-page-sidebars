@@ -3,7 +3,7 @@ Contributors: blazersix, bradyvercher
 Donate link: http://bit.ly/s2zcgD
 Tags: sidebars, custom sidebars, dynamic sidebar, simple, widget, widgets
 Requires at least: 3.4.2
-Tested up to: 3.9
+Tested up to: 4.0
 Stable tag: trunk
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
