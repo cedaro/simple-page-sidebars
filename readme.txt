@@ -44,6 +44,7 @@ add_action( 'init', 'myprefix_init' );`
 
 = Translation Credits =
 
+* Indonesian (id_ID) - Marga Satrya [v1.1.7]
 * Serbo-Croation (sr_RS) - Borisa Djuraskovic [v1.1.5]
 
 == Installation ==
@@ -86,6 +87,9 @@ If your page has any custom loops or queries, they need to be followed by `wp_re
 Some themes register different sidebars for their page templates, which means there isn't a default sidebar that can be replaced. To use Simple Page Sidebars in this instance, you can create a child theme and force page templates with custom sidebars to use the default sidebar.
 
 == Changelog ==
+
+= 1.1.7 =
+* Added Indonesian translation.
 
 = 1.1.6 =
 *  Prevent quick edit nonces from being submitted when searching or filtering a post list table.
