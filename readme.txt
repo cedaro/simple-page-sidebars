@@ -46,6 +46,7 @@ add_action( 'init', 'myprefix_init' );`
 
 * Indonesian (id_ID) - Marga Satrya [v1.1.7]
 * Serbo-Croation (sr_RS) - Borisa Djuraskovic [v1.1.5]
+* Spanish (es_ES) - David Perez [Closemarketing](https://www.closemarketing.es/) [v1.1.7] 
 
 == Installation ==
 
