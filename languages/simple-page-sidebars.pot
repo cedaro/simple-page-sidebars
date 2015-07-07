@@ -1,8 +1,8 @@
-# Copyright (C) 2015 Blazer Six
+# Copyright (C) 2015 Cedaro
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Simple Page Sidebars 1.1.8\n"
+"Project-Id-Version: Simple Page Sidebars 1.2.0\n"
 "Report-Msgid-Bugs-To: "
 "http://wordpress.org/support/plugin/simple-page-sidebars\n"
 "POT-Creation-Date: 2012-11-13 06:36-0800\n"
@@ -12,7 +12,7 @@ msgstr ""
 "PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.4.9\n"
+"X-Generator: grunt-wp-i18n 0.5.2\n"
 "X-Poedit-KeywordsList: "
 "__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
 "attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
@@ -152,7 +152,7 @@ msgid "Simple Page Sidebars"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://wordpress.org/extend/plugins/simple-page-sidebars/"
+msgid "https://wordpress.org/plugins/simple-page-sidebars/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -160,9 +160,11 @@ msgid "Assign custom, widget-enabled sidebars to any page with ease."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Blazer Six"
+msgid "Cedaro"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://www.blazersix.com/"
+msgid ""
+"http://www.cedaro.com/?utm_source=wordpress-plugin&utm_medium=link&utm_"
+"content=simple-page-sidebars-author-uri&utm_campaign=plugins"
 msgstr ""

@@ -1,20 +1,22 @@
 <?php
 /**
+ * Simple Page Sidebars
+ *
+ * @package SimplePageSidebars
+ * @author Brady Vercher <brady@blazersix.com>
+ * @copyright Copyright (c) 2015 Cedaro, LLC
+ * @license GPL-2.0+
+ *
  * Plugin Name: Simple Page Sidebars
- * Plugin URI: http://wordpress.org/extend/plugins/simple-page-sidebars/
+ * Plugin URI: https://wordpress.org/plugins/simple-page-sidebars/
  * Description: Assign custom, widget-enabled sidebars to any page with ease.
- * Version: 1.1.8
- * Author: Blazer Six
- * Author URI: http://www.blazersix.com/
+ * Version: 1.2.0
+ * Author: Cedaro
+ * Author URI: http://www.cedaro.com/?utm_source=wordpress-plugin&utm_medium=link&utm_content=simple-page-sidebars-author-uri&utm_campaign=plugins
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: simple-page-sidebars
  * Domain Path: /languages
- *
- * @package SimplePageSidebars
- * @author Brady Vercher <brady@blazersix.com>
- * @copyright Copyright (c) 2013, Blazer Six, Inc.
- * @license GPL-2.0+
  */
 
 /**

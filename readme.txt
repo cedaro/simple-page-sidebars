@@ -1,9 +1,8 @@
 === Simple Page Sidebars ===
-Contributors: blazersix, bradyvercher
-Donate link: http://bit.ly/s2zcgD
+Contributors: cedaro, bradyvercher
 Tags: sidebars, custom sidebars, dynamic sidebar, simple, widget, widgets
-Requires at least: 3.4.2
-Tested up to: 4.1
+Requires at least: 4.0
+Tested up to: 4.3
 Stable tag: trunk
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -36,11 +35,10 @@ add_action( 'init', 'myprefix_init' );`
 
 = Additional Resources =
 
-* [Write a review](http://wordpress.org/support/view/plugin-reviews/simple-page-sidebars#postform)
-* [Have a question?](http://wordpress.org/support/plugin/simple-page-sidebars)
-* [Contribute on GitHub](https://github.com/blazersix/simple-page-sidebars)
-* [Follow @bradyvercher](https://twitter.com/bradyvercher)
-* [Hire Blazer Six](http://www.blazersix.com/)
+* [Write a review](https://wordpress.org/support/view/plugin-reviews/simple-page-sidebars#postform)
+* [Contribute on GitHub](https://github.com/cedaro/simple-page-sidebars)
+* [Follow @cedaroco](https://twitter.com/cedaroco)
+* [Visit Cedaro](http://www.cedaro.com/?utm_source=wordpress.org&utm_medium=link&utm_content=simple-page-sidebars-readme&utm_campaign=plugins)
 
 = Translation Credits =
 
@@ -88,6 +86,10 @@ If your page has any custom loops or queries, they need to be followed by `wp_re
 Some themes register different sidebars for their page templates, which means there isn't a default sidebar that can be replaced. To use Simple Page Sidebars in this instance, you can create a child theme and force page templates with custom sidebars to use the default sidebar.
 
 == Changelog ==
+
+= 1.2.0 =
+* Transferred to Cedaro.
+* Updated the Widget Area class constructor to prevent deprecation notices in WP 4.3+.
 
 = 1.1.8 =
 * Added Spanish translation.

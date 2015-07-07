@@ -12,7 +12,7 @@ class Simple_Page_Sidebars_Widget_Area extends WP_Widget {
 	 *
 	 * @since 0.2.0
 	 */
-	function __construct() {
+	public function __construct() {
 		$widget_ops = array(
 			'classname' => 'widget_area',
 			'description' => __( 'Include all widgets from another widget area', 'simple-page-sidebars' )
@@ -27,7 +27,7 @@ class Simple_Page_Sidebars_Widget_Area extends WP_Widget {
 	 *
 	 * @since 0.2.0
 	 */
-	function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {
 		extract( $args );
 
 		// Don't allow an infinite loop.
@@ -50,7 +50,7 @@ class Simple_Page_Sidebars_Widget_Area extends WP_Widget {
 	 *
 	 * @since 0.2.0
 	 */
-	function form( $instance ) {
+	public function form( $instance ) {
 		global $wp_registered_sidebars;
 
 		$instance = wp_parse_args( (array) $instance, array(
@@ -87,7 +87,7 @@ class Simple_Page_Sidebars_Widget_Area extends WP_Widget {
 	 *
 	 * @since 0.2.0
 	 */
-	function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 
 		$instance['title'] = wp_strip_all_tags( $new_instance['title'] );
