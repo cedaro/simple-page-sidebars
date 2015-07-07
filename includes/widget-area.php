@@ -19,7 +19,7 @@ class Simple_Page_Sidebars_Widget_Area extends WP_Widget {
 		);
 
 		// Call the parent constructor.
-		$this->WP_Widget( 'area', __( 'Widget Area', 'simple-page-sidebars' ), $widget_ops );
+		parent::__construct( 'area', __( 'Widget Area', 'simple-page-sidebars' ), $widget_ops );
 	}
 
 	/**
