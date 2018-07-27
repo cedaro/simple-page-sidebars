@@ -3,17 +3,17 @@
  * Simple Page Sidebars
  *
  * @package SimplePageSidebars
- * @author Brady Vercher <brady@blazersix.com>
  * @copyright Copyright (c) 2015 Cedaro, LLC
  * @license GPL-2.0+
  *
+ * @wordpress-plugin
  * Plugin Name: Simple Page Sidebars
- * Plugin URI: https://wordpress.org/plugins/simple-page-sidebars/
+ * Plugin URI:  https://wordpress.org/plugins/simple-page-sidebars/
  * Description: Assign custom, widget-enabled sidebars to any page with ease.
- * Version: 1.2.0
- * Author: Cedaro
- * Author URI: https://www.cedaro.com/?utm_source=wordpress-plugin&utm_medium=link&utm_content=simple-page-sidebars-author-uri&utm_campaign=plugins
- * License: GPL-2.0+
+ * Version:     1.2.1
+ * Author:      Cedaro
+ * Author URI:  https://www.cedaro.com/?utm_source=wordpress-plugin&utm_medium=link&utm_content=simple-page-sidebars-author-uri&utm_campaign=plugins
+ * License:     GPL-2.0+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: simple-page-sidebars
  */
