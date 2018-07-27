@@ -16,7 +16,6 @@
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: simple-page-sidebars
- * Domain Path: /languages
  */
 
 /**
@@ -70,9 +69,7 @@ class Simple_Page_Sidebars {
 	 * @since 1.1.4
 	 */
 	public static function load_textdomain() {
-		$locale = apply_filters( 'plugin_locale', get_locale(), 'simple-page-sidebars' );
-		load_textdomain( 'simple-page-sidebars', WP_LANG_DIR . '/simple-page-sidebars/' . $locale . '.mo' );
-		load_plugin_textdomain( 'simple-page-sidebars', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+		load_plugin_textdomain( 'simple-page-sidebars' );
 	}
 
 	/**
