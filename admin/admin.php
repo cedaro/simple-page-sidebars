@@ -152,7 +152,7 @@ class Simple_Page_Sidebars_Admin {
 	 * will be reflected globally.
 	 *
 	 * @since 1.1.0
-	 * @link http://codex.wordpress.org/Class_Reference/WP_Query
+	 * @link https://codex.wordpress.org/Class_Reference/WP_Query
 	 *
 	 * @param object $wp_query The WP_Query object passed by reference.
 	 */

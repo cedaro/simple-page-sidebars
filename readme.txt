@@ -5,7 +5,7 @@ Requires at least: 4.0
 Tested up to: 4.5
 Stable tag: trunk
 License: GPL-2.0+
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Easily assign custom, widget-enabled sidebars to any page.
 
@@ -48,7 +48,7 @@ add_action( 'init', 'myprefix_init' );`
 
 == Installation ==
 
-Installing Simple Page Sidebars is just like installing most other plugins. [Check out the codex](http://codex.wordpress.org/Managing_Plugins#Installing_Plugins) if you have any questions.
+Installing Simple Page Sidebars is just like installing most other plugins. [Check out the codex](https://codex.wordpress.org/Managing_Plugins#Installing_Plugins) if you have any questions.
 
 #### Setup
 After installation, go to the Reading options panel (the Reading link under Settings) and choose which of your registered sidebars is the default sidebar.

@@ -12,9 +12,9 @@
  * Description: Assign custom, widget-enabled sidebars to any page with ease.
  * Version: 1.2.0
  * Author: Cedaro
- * Author URI: http://www.cedaro.com/?utm_source=wordpress-plugin&utm_medium=link&utm_content=simple-page-sidebars-author-uri&utm_campaign=plugins
+ * Author URI: https://www.cedaro.com/?utm_source=wordpress-plugin&utm_medium=link&utm_content=simple-page-sidebars-author-uri&utm_campaign=plugins
  * License: GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: simple-page-sidebars
  */
 
