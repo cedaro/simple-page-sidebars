@@ -3,8 +3,8 @@
 Contributors: cedaro, bradyvercher
 Tags: sidebars, custom sidebars, dynamic sidebar, simple, widget, widgets
 Requires at least: 4.9
-Tested up to: 6.2
-Stable tag: 1.2.1
+Tested up to: 6.7.1
+Stable tag: 1.2.2
 License: GPL-2.0+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,7 +83,10 @@ Some themes register different sidebars for their page templates, which means th
 
 ## Changelog
 
-### 1.2.1 - July 27, 2018
+### 1.2.2
+* Tested with WP 6.7.1 and PHP 8.2.
+
+### 1.2.1
 * Removed bundled language files in favor of WordPress.org language packs.
 
 ### 1.2.0
