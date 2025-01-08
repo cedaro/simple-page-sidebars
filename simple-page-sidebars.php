@@ -10,7 +10,7 @@
  * Plugin Name: Simple Page Sidebars
  * Plugin URI:  https://wordpress.org/plugins/simple-page-sidebars/
  * Description: Assign custom, widget-enabled sidebars to any page with ease.
- * Version:     1.2.1
+ * Version:     1.2.2
  * Author:      Cedaro
  * Author URI:  https://www.cedaro.com/?utm_source=wordpress-plugin&utm_medium=link&utm_content=simple-page-sidebars-author-uri&utm_campaign=plugins
  * License:     GPL-2.0+
