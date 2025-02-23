@@ -1,7 +1,7 @@
 # Simple Page Sidebars
 
 Contributors: cedaro, bradyvercher
-Tags: sidebars, custom sidebars, dynamic sidebar, simple, widget, widgets
+Tags: sidebars, custom sidebars, widgets
 Requires at least: 4.9
 Tested up to: 6.7
 Stable tag: 1.2.1
